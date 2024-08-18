@@ -1,3 +1,9 @@
+Install Docker
+``` curl -sSL https://get.docker.com | sh ```
+
+
+
+Create the docker compose file.
 ```
 nano docker-compose.yml
 ```
@@ -100,5 +106,5 @@ services:
     restart: unless-stopped 
     command: tunnel run 
     environment: 
-      - TUNNEL_TOKEN=abcdefghijklmnopqrstuvwxyz0123456789 #CHANGEME
+      - TUNNEL_TOKEN=abcdefghijklmnopqrstuvwxyz0123456789 #Change to your cloudflare tunnel token
 ```
