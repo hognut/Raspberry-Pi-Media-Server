@@ -1,17 +1,20 @@
-Step 1: Install Docker
+1: Install Docker
 ```
 curl -sSL https://get.docker.com | sh
 ```
-Step 2: Allow default user to run Docker commands without sudo
+2: Allow default user to run Docker commands without sudo
 ```
 sudo usermod -aG docker $USER
 ```
-Step 3: Logout and SSH back in: ``` exit ```
-Step 4: Install Docker Compose
+3: Logout and SSH back in 
+```
+exit
+```
+4: Install Docker Compose
 ```
 sudo apt install docker-compose -y
 ```
-Step 5: Create the docker compose file.
+5: Create the docker compose file.
 ```
 nano docker-compose.yml
 ```
