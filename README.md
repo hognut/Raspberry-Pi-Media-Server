@@ -111,7 +111,9 @@ services:
     volumes:
       - ~/appdata/adguard/work:/opt/adguardhome/work
       - ~/appdata/adguard/conf:/opt/adguardhome/conf
-    restart: unless-stopped    cloudflared: 
+    restart: unless-stopped
+
+  cloudflared: 
     image: cloudflare/cloudflared 
     container_name: cloudflare-tunnel 
     restart: unless-stopped 
@@ -124,3 +126,10 @@ services:
 docker compose up -d
 ```
 7. Log into the various web services and configure.
+```
+http://SERVERADDRESS:8080 #Sabnzbd
+http://SERVERADDRESS:7878 #Radarr
+http://SERVERADDRESS:8989 #Sonarr
+http://SERVERADDRESS:32400/web #Plex
+http://SERVERADDRESS::5055 #Overseerr
+http://SERVERADDRESS:3000 #AdguardHome
