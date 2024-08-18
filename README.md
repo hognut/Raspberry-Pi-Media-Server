@@ -18,7 +18,7 @@ sudo apt install docker-compose -y
 ```
 nano docker-compose.yml
 ```
-Paste the following into the yml file and save.
+Paste the following into the yml file and save:
 ```
 services:
   sabnzbd:
@@ -119,3 +119,8 @@ services:
     environment: 
       - TUNNEL_TOKEN=abcdefghijklmnopqrstuvwxyz0123456789 #Change to your cloudflare tunnel token
 ```
+6. Run the Docker Compose command
+```
+docker compose up -d
+```
+7. Log into the various web services and configure.
