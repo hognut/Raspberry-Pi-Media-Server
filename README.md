@@ -113,12 +113,12 @@ services:
       - ~/appdata/adguard/conf:/opt/adguardhome/conf
     restart: unless-stopped
 
-  cloudflared: 
-    image: cloudflare/cloudflared 
-    container_name: cloudflare-tunnel 
-    restart: unless-stopped 
-    command: tunnel run 
-    environment: 
+  cloudflared:
+    image: cloudflare/cloudflared
+    container_name: cloudflare-tunnel
+    restart: unless-stopped
+    command: tunnel run
+    environment:
       - TUNNEL_TOKEN=abcdefghijklmnopqrstuvwxyz0123456789 #Change to your cloudflare tunnel token
 ```
 6. Run the Docker Compose command
