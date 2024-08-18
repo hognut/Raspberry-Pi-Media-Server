@@ -18,7 +18,7 @@ sudo apt install docker-compose -y
 ```
 nano docker-compose.yml
 ```
-
+Paste the following into the yml file and save.
 ```
 services:
   sabnzbd:
