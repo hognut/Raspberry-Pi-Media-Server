@@ -1,6 +1,6 @@
-# docker-compose
-Docker-Compose install and setup for a Rpi media server.
-
+```
+nano docker-compose.yml
+```
 
 ```
 services:
