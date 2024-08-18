@@ -12,9 +12,9 @@ services:
       - PGID=1000
       - TZ=Etc/UTC
     volumes:
-      - /home/steven/appdata/sabnzbd/config:/config
-      - /home/steven/media/downloads:/downloads #optional
-      - /home/steven/media/incomplete/:/incomplete-downloads #optional
+      - ~/appdata/sabnzbd/config:/config
+      - ~/media/downloads:/downloads #optional
+      - ~/media/incomplete/:/incomplete-downloads #optional
     ports:
       - 8080:8080
     restart: unless-stopped
@@ -27,9 +27,9 @@ services:
       - PGID=1000
       - TZ=Etc/UTC
     volumes:
-      - /home/steven/appdata/radarr:/config
-      - /home/steven/media/movies:/movies #optional
-      - /home/steven/media/incomplete:/downloads #optional
+      - ~/appdata/radarr:/config
+      - ~/media/movies:/movies #optional
+      - ~/media/incomplete:/downloads #optional
     ports:
       - 7878:7878
     restart: unless-stopped
@@ -42,9 +42,9 @@ services:
       - PGID=1000
       - TZ=Etc/UTC
     volumes:
-      - /home/steven/appdata/sonarr:/config
-      - /home/steven/media/tv:/tv #optional
-      - /home/steven/media/incomplete:/downloads #optional
+      - ~/appdata/sonarr:/config
+      - ~/media/tv:/tv #optional
+      - ~/media/incomplete:/downloads #optional
     ports:
       - 8989:8989
     restart: unless-stopped
@@ -57,7 +57,7 @@ services:
       - PGID=1000
       - TZ=Etc/UTC
     volumes:
-      - /home/steven/appdata/overseerr/config:/config
+      - ~/appdata/overseerr/config:/config
     ports:
       - 5055:5055
     restart: unless-stopped
@@ -75,9 +75,9 @@ services:
     devices:
       - /dev/dri:dev/dri
     volumes:
-      - /home/steven/appdata/plex/config:/config
-      - /home/steven/media/tv:/tv
-      - /home/steven/media/movies:/movies
+      - ~/appdata/plex/config:/config
+      - ~/media/tv:/tv
+      - ~/media/movies:/movies
     restart: unless-stopped
 
   adguardhome:
@@ -92,13 +92,13 @@ services:
       - 80:80/tcp
       - 443:443/tcp
     volumes:
-      - /home/steven/appdata/adguard/work:/opt/adguardhome/work
-      - /home/steven/appdata/adguard/conf:/opt/adguardhome/conf
+      - ~/appdata/adguard/work:/opt/adguardhome/work
+      - ~/appdata/adguard/conf:/opt/adguardhome/conf
     restart: unless-stopped    cloudflared: 
     image: cloudflare/cloudflared 
     container_name: cloudflare-tunnel 
     restart: unless-stopped 
     command: tunnel run 
     environment: 
-      - TUNNEL_TOKEN=abcdefghijklmnopqrstuvwxyz0123456789
+      - TUNNEL_TOKEN=abcdefghijklmnopqrstuvwxyz0123456789 #CHANGEME
 ```
