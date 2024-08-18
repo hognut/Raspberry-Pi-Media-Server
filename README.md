@@ -1,5 +1,4 @@
-Install Docker
-``` curl -sSL https://get.docker.com | sh ```
+Install Docker: ``` curl -sSL https://get.docker.com | sh ```
 
 
 
