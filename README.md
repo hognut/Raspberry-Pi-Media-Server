@@ -1,5 +1,7 @@
-Install Docker: ``` curl -sSL https://get.docker.com | sh ```
-
+Step 1: Install Docker
+```
+curl -sSL https://get.docker.com | sh
+```
 
 
 Create the docker compose file.
