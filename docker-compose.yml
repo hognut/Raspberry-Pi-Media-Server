@@ -8,7 +8,7 @@ services:
       - TZ=Etc/UTC
     volumes:
       - ~/appdata/sabnzbd/config:/config
-      - ~/media/downloads:/downloads #optional
+      - ~/media/downloads:/downloads
       - ~/media/incomplete/:/incomplete-downloads #optional
     ports:
       - 8080:8080
@@ -23,8 +23,8 @@ services:
       - TZ=Etc/UTC
     volumes:
       - ~/appdata/radarr:/config
-      - ~/media/movies:/movies #optional
-      - ~/media/incomplete:/downloads #optional
+      - ~/media/movies:/movies
+      - ~/media/downloads:/downloads
     ports:
       - 7878:7878
     restart: unless-stopped
@@ -38,8 +38,8 @@ services:
       - TZ=Etc/UTC
     volumes:
       - ~/appdata/sonarr:/config
-      - ~/media/tv:/tv #optional
-      - ~/media/incomplete:/downloads #optional
+      - ~/media/tv:/tv 
+      - ~/media/downloads:/downloads 
     ports:
       - 8989:8989
     restart: unless-stopped
