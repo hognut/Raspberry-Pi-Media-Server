@@ -46,7 +46,7 @@ services:
     volumes:
       - ~/appdata/radarr:/config
       - ~/media/movies:/movies #optional
-      - ~/media/incomplete:/downloads #optional
+      - ~/media/downloads:/downloads
     ports:
       - 7878:7878
     restart: unless-stopped
@@ -61,7 +61,7 @@ services:
     volumes:
       - ~/appdata/sonarr:/config
       - ~/media/tv:/tv #optional
-      - ~/media/incomplete:/downloads #optional
+      - ~/media/downloads:/downloads
     ports:
       - 8989:8989
     restart: unless-stopped
