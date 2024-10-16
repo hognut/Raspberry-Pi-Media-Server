@@ -20,7 +20,7 @@ nano docker-compose.yml
 ```
 Paste the following into the yml file and save (Ctrl + x -> y & Enter):
 ```
-services:
+'services:
   sabnzbd:
     image: lscr.io/linuxserver/sabnzbd:latest
     container_name: sabnzbd
@@ -29,9 +29,11 @@ services:
       - PGID=0
       - TZ=Etc/UTC
     volumes:
-      - ~/appdata/sabnzbd/config:/config
-      - ~/media/downloads:/downloads #optional
-      - ~/media/incomplete/:/incomplete-downloads #optional
+      - /mnt/appdata/sabnzbd/config:/config
+      - /mnt/media/downloads:/mnt/media/downloads #optional
+      - /mnt/media/incomplete/:/mnt/media/incomplete #optional
+      - /mnt/media/tv/:/mnt/media/tv
+      - /mnt/media/movies/:/mnt/media/movies
     ports:
       - 8080:8080
     restart: unless-stopped
@@ -44,9 +46,9 @@ services:
       - PGID=0
       - TZ=Etc/UTC
     volumes:
-      - ~/appdata/radarr:/config
-      - ~/media/movies:/movies #optional
-      - ~/media/downloads:/downloads
+      - /mnt/appdata/radarr:/config
+      - /mnt/media/movies:/mnt/media/movies #optional
+      - /mnt/media/downloads:/mnt/media/downloads #optional
     ports:
       - 7878:7878
     restart: unless-stopped
@@ -59,9 +61,9 @@ services:
       - PGID=0
       - TZ=Etc/UTC
     volumes:
-      - ~/appdata/sonarr:/config
-      - ~/media/tv:/tv #optional
-      - ~/media/downloads:/downloads
+      - /mnt/appdata/sonarr:/config
+      - /mnt/media/tv:/mnt/media/tv #optional
+      - /mnt/media/downloads:/mnt/media/downloads #optional
     ports:
       - 8989:8989
     restart: unless-stopped
@@ -74,7 +76,7 @@ services:
       - PGID=0
       - TZ=Etc/UTC
     volumes:
-      - ~/appdata/overseerr/config:/config
+      - /mnt/appdata/overseerr/config:/config
     ports:
       - 5055:5055
     restart: unless-stopped
@@ -92,25 +94,9 @@ services:
     devices:
       - /dev/dri:dev/dri
     volumes:
-      - ~/appdata/plex/config:/config
-      - ~/media/tv:/tv
-      - ~/media/movies:/movies
-    restart: unless-stopped
-
-  adguardhome:
-    image: adguard/adguardhome
-    container_name: adguardhome
-    ports:
-      - 53:53/tcp
-      - 53:53/udp
-      - 784:784/udp
-      - 853:853/tcp
-      - 3000:3000/tcp
-      - 80:80/tcp
-      - 443:443/tcp
-    volumes:
-      - ~/appdata/adguard/work:/opt/adguardhome/work
-      - ~/appdata/adguard/conf:/opt/adguardhome/conf
+      - /mnt/appdata/plex/config:/config
+      - /mnt/media/tv:/mnt/media/tv
+      - /mnt/media/movies:/mnt/media/movies
     restart: unless-stopped
 
   cloudflared:
@@ -119,7 +105,7 @@ services:
     restart: unless-stopped
     command: tunnel run
     environment:
-      - TUNNEL_TOKEN=abcdefghijklmnopqrstuvwxyz0123456789 #Change to your cloudflare tunnel token
+      - TUNNEL_TOKEN=yourtokenhere
 ```
 6. Run the Docker Compose command
 ```
