@@ -25,8 +25,8 @@ services:
     image: lscr.io/linuxserver/sabnzbd:latest
     container_name: sabnzbd
     environment:
-      - PUID=1000
-      - PGID=1000
+      - PUID=0
+      - PGID=0
       - TZ=Etc/UTC
     volumes:
       - ~/appdata/sabnzbd/config:/config
@@ -40,8 +40,8 @@ services:
     image: lscr.io/linuxserver/radarr:latest
     container_name: radarr
     environment:
-      - PUID=1000
-      - PGID=1000
+      - PUID=0
+      - PGID=0
       - TZ=Etc/UTC
     volumes:
       - ~/appdata/radarr:/config
@@ -55,8 +55,8 @@ services:
     image: lscr.io/linuxserver/sonarr:latest
     container_name: sonarr
     environment:
-      - PUID=1000
-      - PGID=1000
+      - PUID=0
+      - PGID=0
       - TZ=Etc/UTC
     volumes:
       - ~/appdata/sonarr:/config
@@ -70,8 +70,8 @@ services:
     image: lscr.io/linuxserver/overseerr:latest
     container_name: overseerr
     environment:
-      - PUID=1000
-      - PGID=1000
+      - PUID=0
+      - PGID=0
       - TZ=Etc/UTC
     volumes:
       - ~/appdata/overseerr/config:/config
@@ -84,8 +84,8 @@ services:
     container_name: plex
     network_mode: host
     environment:
-      - PUID=1000
-      - PGID=1000
+      - PUID=0
+      - PGID=0
       - TZ=Etc/UTC
       - VERSION=docker
       - PLEX_CLAIM= #optional
